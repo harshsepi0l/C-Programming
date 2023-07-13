@@ -2,7 +2,7 @@
 #include <stdbool.h>
 
 
-  // Structures
+// Structures
     struct Rectangle
     {
         int length;
@@ -12,20 +12,20 @@
 int main(){
     printf("Hello World!\n");
 
-
-    /* 
-    Escape sequence = Character combination consisting of a backslash 
-                      followed by a letter or combination of digits.
-                      They specify action within a line or string of text.
-                      \n = new line
-                      \t = tab
+/* 
+Escape sequence = Character combination consisting of a backslash 
+    followed by a letter or combination of digits.
+    They specify action within a line or string of text.
+        \n = new line
+        \t = tab
     
     
-    */ 
+*/ 
     printf("I like pizza, is really good!\n");
-   
 
-    //Variables: datatype + varible declaration 
+
+
+//Variables: datatype + varible declaration 
     int x;
     x= 20;
     int y = 321;
@@ -36,7 +36,10 @@ int main(){
     char name[] = "Bro"; //Array of characters
     bool e = true; //True or false
 
-    // Format specifier % = defines and formats a type of data to be displayed.
+
+
+
+// Format specifier % = defines and formats a type of data to be displayed.
     /*
     %c  = character
     %s  = string (array of characters)
@@ -57,25 +60,63 @@ int main(){
     //Constant = fixed values for variables
     const float PI = 3.14159;
 
-    //User input
-    printf("\nHow old are you?");
-    scanf("%d", &age); //Ampersand is the address for the operator
-
-    printf("You are %d years old", age);
 
 
-    //Loops with Arrays
-    int A[5] = {1, 2, 3, 4, 5};
+
+//User input
+    /* USE WHEN NEEDED
+       - printf("\nHow old are you?");
+       scanf("%d", &age); //Ampersand is the address for the operator
+
+       printf("You are %d years old", age);
+    */
+
+
+
+
+//Loops with Arrays
+    int array[5] = {1, 2, 3, 4, 5};
     int i;
     for (i = 0; i < 5; i++)
     {
-        printf("\n%d", A[i]); 
+        printf("\n%d", array[i]); 
     }
-    //Declaration of the struct (sitting outside of main)
-   //   struct Rectangle r;
+
+
+
+
+//Declaration of the struct (sitting outside of main)
+    //   struct Rectangle r;
 
     //Declaration and initialization of the struct
     struct Rectangle r = {10 , 5};
 
- return 0;
+
+
+
+//Pointers
+    //Intro to pointers
+        int a = 10;
+        int *p; // pointer variable (decleration or dereference)
+        p = &a; // address reference of a at p
+        printf("\nusing pointer %d", *p); 
+        // *p means that it will go to the address and get the value
+        printf("\nusing pointer %d %d", p, &a); 
+        // This gives us the address of a
+
+    //.. Pointers to Arrays
+    int b[5] = {2, 4, 6, 8, 10};
+    int *q;
+    q=b; //no ampersand required when we are pointing to arrays.
+
+    for (int i = 0; i < 5; i++){
+    printf("\nValue of A: %d ", q[i]); 
+    //Using q[index] we can go through all of the values
+    }
+    
+
+
+
+
+ return 0; // always have to return something so just return 0 lol
 }
