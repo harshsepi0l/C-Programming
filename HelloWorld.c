@@ -89,7 +89,7 @@ Escape sequence = Character combination consisting of a backslash
     //   struct Rectangle r;
 
     //Declaration and initialization of the struct
-    struct Rectangle r = {10 , 5};
+     // struct Rectangle r = {10 , 5};
 
 
 
@@ -114,6 +114,14 @@ Escape sequence = Character combination consisting of a backslash
     //Using q[index] we can go through all of the values
     }
     
+    //.. Pointers to Structs
+        struct Rectangle r;
+        struct Rectangle *t = &r;
+
+        t -> length = 20;
+        t -> breadth = 10;
+
+        printf("\nValue of Rectangle using pointer: %d", *t);
 
 
 
