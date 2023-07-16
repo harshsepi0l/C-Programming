@@ -39,10 +39,12 @@
         }
     
 //Arrays - Parameter passing (Arrays are always pass-by-address)  
-    void fun(int sizeArray[])
-    {
-        printf(sizeof(sizeArray)/sizeof(int));
+void fun(int parameterArray[], int n){
+    printf("\n\nParameter Array: ");
+    for (int i = 0; i < n; i++ ){
+        printf(" %d", parameterArray[i]);
     }
+}
 
 // Main function:
 
@@ -181,13 +183,14 @@ Escape sequence = Character combination consisting of a backslash
 
 
 //Arrays as parameter (Arrays are always call-by-address)
-int pointerArray[] = {2, 4, 6, 8, 10};
+int parameterArray[] = {2, 4, 6, 8, 10};
 int n = 5;
 
 for (int i; i < n; i++ ){
-    printf("\n%d", pointerArray[i]);
+    printf("\n%d", parameterArray[i]);
 }
-fun(pointerArray);
+fun(parameterArray, 5);
+
 
  return 0; // always have to return something so just return 0 lol
 }
