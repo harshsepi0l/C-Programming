@@ -103,11 +103,31 @@
 
 
 
+// Nested Recursion:
+// If a recursive function is calling itself within the recursive call, then its a nested recursion.
+
+//Code:
+    int nestedRecursion(int n){
+        if(n > 100){
+            return n - 10;
+        }
+        else 
+            return nestedRecursion(nestedRecursion(n+11));
+    }
+    
+
+
 // MAIN:
 
 int main() {
+    tail(3);
+    tailLoop(3);
 
-    indirectA(20);
+    head(3);
+    headLoop(3);
+
+    tree(3);
+
 
 
     return 0;
