@@ -69,7 +69,7 @@
 // Code: 
     void tree (int n){
         if (n > 0){
-            printf("\n\n%d", n);
+            printf("%d", n);
             tree(n-1);
             tree(n-1);
         }
@@ -80,17 +80,34 @@
 
 
 
+// Indirect Recursion:
+// More than one function and they maybe calling one another in a circular fashion.
+
+// Code:
+
+    void indirectB(int n);
+
+    void indirectA(int n){
+        if (n > 0){
+            printf("%d ", n);
+            indirectB(n-1);
+        }
+    }
+    void indirectB(int n){
+        if (n > 1)
+        {
+            printf("%d ", n);
+            indirectA(n/2);
+        }
+    }
+
+
+
 // MAIN:
 
 int main() {
-    tail(3);
-    tailLoop(3);
 
-    head(3);
-    headLoop(3);
-
-    tree(3);
-
+    indirectA(20);
 
 
     return 0;
