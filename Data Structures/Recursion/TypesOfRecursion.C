@@ -120,13 +120,12 @@
 // MAIN:
 
 int main() {
-    tail(3);
-    tailLoop(3);
 
-    head(3);
-    headLoop(3);
 
-    tree(3);
+
+   int r = nestedRecursion(100); 
+   //When the input is less than or equal to 100, it grows over 100 to give the output
+   printf("%d ", r);
 
 
 
