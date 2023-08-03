@@ -17,6 +17,7 @@ int main()
     int A[5]={2,4,6,8,10};
 
     int *p;
+    int *q; //For increasing the size of a heap array.
     int i;
     p=(int*)malloc(5*sizeof(int));
     p[0]=3;
@@ -25,13 +26,22 @@ int main()
     p[3]=9;
     p[4]=11;
 
+   
+
     for(i= 0; i<5; i++) //Stack Array
-    printf("%d ",A[i]);
+        printf("%d ",A[i]);
 
     printf("\n");
 
+    q=(int*)malloc(10*sizeof(int)); //Transfer from Heap
     for(i=0; i<5; i++) //Heap Array
-    printf("%d ",p[i]);
+        q[i] = p[i];
 
+   free(p);
+   
+    for(i=0; i<5; i++) //Heap Array
+        printf("%d ",q[i]);
+
+  
     return 0;
 }
