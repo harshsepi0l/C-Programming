@@ -39,7 +39,6 @@ int main(){
     int n,i;
     printf("Enter the size of an array: ");
     scanf("%d", &arr.size);
-    
     arr.A=(int *)malloc(arr.size*sizeof(int));
     arr.length = 0;
 
