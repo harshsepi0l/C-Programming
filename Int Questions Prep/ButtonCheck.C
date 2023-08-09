@@ -9,24 +9,21 @@ be pressed or unpressed. You must wait for 5 "checks" (50ms) of continuous press
 #include <stdbool.h>
 #include <stdio.h>
 
-// Constants
 #define CHECK_THRESHOLD 5
 
-// Possible states of a button
-typedef enum {
-    UNPRESSED = 0,
-    PRESSED = 1
-} ButtonState;
+// Constants for button states
+#define UNPRESSED 0
+#define PRESSED 1
 
 // Structure to represent the state and properties of the button
-typedef struct {
-    ButtonState currentState;   // the overall "confirmed" state of the button
-    ButtonState lastCheckState; // the state we observed in the latest check
+struct Button {
+    int currentState;           // the overall "confirmed" state of the button
+    int lastCheckState;         // the state we observed in the latest check
     int consecutiveCount;       // how many times in a row we've observed the current state
-} Button;
+};
 
 // Initialize the button with its default state
-void Button_Init(Button *btn) {
+void Button_Init(struct Button *btn) {
     btn->currentState = UNPRESSED;
     btn->lastCheckState = UNPRESSED;
     btn->consecutiveCount = 0;
@@ -34,7 +31,7 @@ void Button_Init(Button *btn) {
 
 // This function should be called every time we "check" the button (i.e., every 10ms)
 // It updates the button's state based on the new reading
-void Button_Update(Button *btn, ButtonState newCheckState) {
+void Button_Update(struct Button *btn, int newCheckState) {
     if (btn->lastCheckState == newCheckState) {
         btn->consecutiveCount++;
         if (btn->consecutiveCount == CHECK_THRESHOLD) {
@@ -48,12 +45,11 @@ void Button_Update(Button *btn, ButtonState newCheckState) {
 }
 
 int main() {
-    Button btn;
+    struct Button btn;
     Button_Init(&btn);
 
-    // Example simulation: for the first 50ms (5 checks), the button is pressed. 
-    // Then, for the next 50ms, the button is unpressed.
-    ButtonState simulatedReadings[10] = {PRESSED, PRESSED, PRESSED, PRESSED, PRESSED, UNPRESSED, UNPRESSED, UNPRESSED, UNPRESSED, UNPRESSED};
+    // Example simulation
+    int simulatedReadings[10] = {PRESSED, PRESSED, PRESSED, PRESSED, PRESSED, UNPRESSED, UNPRESSED, UNPRESSED, UNPRESSED, UNPRESSED};
 
     for (int i = 0; i < 10; i++) {
         Button_Update(&btn, simulatedReadings[i]);
