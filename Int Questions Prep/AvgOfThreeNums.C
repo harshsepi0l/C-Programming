@@ -17,9 +17,9 @@ discarded when a new element is passed in.
 - call it in the main function.
 */
 
-float avgFunc( int * avgNumbers, int givenSize ){
-    float sum = 0;
-    float result = 0;
+int avgFunc( int * avgNumbers, int givenSize ){
+    int sum = 0;
+    int  result = 0;
     for (int i = 0; i < givenSize; i++){
         sum += avgNumbers[i];
     }
