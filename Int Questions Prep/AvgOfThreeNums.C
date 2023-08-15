@@ -33,19 +33,20 @@ int avgFunc( int * avgNumbers, int givenSize ){
 int main(){
     int * avgNumbers;
     int givenSize;
+    int i = 0;
+
     printf("Number of numbers for average: ");
     scanf("%d", &givenSize);
-    avgNumbers = (int *)malloc(givenSize*sizeof(int));
+    avgNumbers = (int *)malloc(100*sizeof(int));
     int result;
 
     printf("Enter the numbers: ");
     for (int i = 0; i < givenSize; i++){
         scanf("%d", &avgNumbers[i]);
     }
-
     result = avgFunc(avgNumbers, givenSize);
     printf("The average of the numbers is: %d", result);
-
+ 
     free(avgNumbers);
 return 0;
 
